@@ -1,3 +1,10 @@
+![Project-logo](https://github.com/isachenko-andrii/User-Funnels/raw/main/project-logo.png)
+<div align="center">  
+    
+## User-Funnels<br>(Analyzing user funnels)   
+  
+</div>
+
 # User-Funnels
 🧮 Analyzing user funnels using SQL
 
