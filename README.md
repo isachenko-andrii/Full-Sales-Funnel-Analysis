@@ -72,9 +72,22 @@ Dividing the audience into groups based on their behavior (funnel depth) for tar
   
 **File:** 05_segmentation.sql  
 
-**6. Visualization and Reporting**  
-Transforming dry numbers into understandable visuals for business.  
+**6. Calculation of key business metrics**  
+ Based on the cleaned data, a KPI system was calculated to assess the effectiveness of the product funnel.  
   
+ **File:** 06_advanced_metrics.sql  
+  
+## Key Results  
+  
+According to the analysis:  
+**Overall Conversion Rate (Overall CR):** 2.25%.  
+**Highest churn:** Occurs at Product Page → Cart (70% loss) and Cart → Checkout (70% loss).  
+**Segmentation:** Almost 50% of users leave the site after viewing only the main page (Bounce rate).  
+  
+## Visualization  
+  
+    Transforming dry numbers into understandable visuals for business.  
+    
  *  **Visual funnel with drop-off**  
   ![Funnel chart](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/funnel_chart.png)  
  * **Step conversion & drop-off pie**
