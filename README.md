@@ -85,9 +85,8 @@ According to the analysis:
 **Segmentation:** Almost 50% of users leave the site after viewing only the main page (Bounce rate).  
   
 ## Visualization  
+  Transforming dry numbers into understandable visuals for business.  
   
-    Transforming dry numbers into understandable visuals for business.  
-    
  *  **Visual funnel with drop-off**  
   ![Funnel chart](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/funnel_chart.png)  
  * **Step conversion & drop-off pie**
