@@ -1,7 +1,7 @@
 ![Project-logo](https://github.com/isachenko-andrii/User-Funnels/blob/main/Project-logo.png)
 <div align="center">  
     
-## User-Funnels<br>(Analyzing user funnels)   
+## User Funnels<br>(Sales funnel analysis)   
   
 </div>
 
