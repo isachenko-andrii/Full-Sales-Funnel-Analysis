@@ -10,9 +10,12 @@
 
 ## Visualizations  
 
+ *  **Visual funnel with drop-off**  
   ![Funnel chart](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/funnel_chart.png)  
-    
-  ![Conversion charts](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/conversion_charts.png)  
+ * **Step conversion & drop-off pie**
+  ![Conversion charts](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/conversion_charts.png)
+
+ * **Cumulative conversion curve**  
     
   ![Cumulative conversion](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/cumulative_conversion.png)  
     
