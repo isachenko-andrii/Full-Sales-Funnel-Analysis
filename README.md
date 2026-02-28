@@ -5,8 +5,20 @@
   
 </div>
 
+##  Project description  
+  
+This project is dedicated to analyzing the sales funnel of an online store based on the User Funnels Dataset. The goal of the analysis is to track the user's journey from the first visit to the site to a successful purchase, identify critical drop-off points, and provide sound recommendations for improving conversion.
+
+**Data source:** [Kaggle: User Funnels Dataset](https://www.kaggle.com/datasets/amirmotefaker/user-funnels-dataset)  
+  
+## Technology stack  
+
+**Database:** PostgreSQL (SQL for ETL, cleansing and analysis).  
+**Programming language:** Python 3.x.  
+**Libraries:** Pandas, Matplotlib, NumPy.  
 
 
+  
 ## Visualizations  
 
  *  **Visual funnel with drop-off**  
@@ -48,6 +60,12 @@
     └── README.md — project description.  
   
 ---
+
+## How to start the project  
+
+ - Clone the repository.   
+ - Run the SQL scripts from the /sql folder in your PostgreSQL environment.  
+ - ...  
   
  ## Contact  
     
