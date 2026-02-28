@@ -1,4 +1,4 @@
-![Project-logo](https://github.com/isachenko-andrii/User-Funnels/raw/main/project-logo.png)
+![Project-logo](https://github.com/isachenko-andrii/User-Funnels/blob/main/project-logo.png)
 <div align="center">  
     
 ## User-Funnels<br>(Analyzing user funnels)   
