@@ -6,7 +6,15 @@
 </div>
 
 # User-Funnels
-🧮 Analyzing user funnels using SQL
+🧮 Analyzing user funnels using SQL  
+
+## Visualizations  
+
+  https://github.com/isachenko-andrii/User-Funnels/blob/main/images/funnel_chart.png  
+
+  https://github.com/isachenko-andrii/User-Funnels/blob/main/images/conversion_charts.png  
+
+  https://github.com/isachenko-andrii/User-Funnels/blob/main/images/cumulative_conversion.png  
 
 ## Project structure  
 
