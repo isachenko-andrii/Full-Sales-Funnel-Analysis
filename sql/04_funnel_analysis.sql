@@ -53,7 +53,7 @@ SELECT
     stage,
     cnt                                                          AS users,
     prev_cnt                                                     AS prev_stage_users,
-    ROUND(cnt * 100.0 / NULLIF(prev_cnt, 0), 1)                 AS step_conversion_pct
+    ROUND(cnt * 100.0 / NULLIF(prev_cnt, 0), 1)                  AS step_conversion_pct
 FROM with_prev
 ORDER BY ord;
 
@@ -100,7 +100,7 @@ SELECT
     stage,
     cnt                                                         AS users,
     cnt - COALESCE(next_cnt, cnt)                               AS users_dropped,
-    ROUND((cnt - COALESCE(next_cnt, cnt)) * 100.0 / cnt, 1)    AS dropoff_pct
+    ROUND((cnt - COALESCE(next_cnt, cnt)) * 100.0 / cnt, 1)     AS dropoff_pct
 FROM with_next
 ORDER BY ord;
 
@@ -114,7 +114,7 @@ SELECT
     uf.stage,
     COUNT(*)                                               AS stage_users,
     top.top_cnt                                            AS homepage_users,
-    ROUND(COUNT(*) * 100.0 / top.top_cnt, 2)              AS cumulative_conversion_pct
+    ROUND(COUNT(*) * 100.0 / top.top_cnt, 2)               AS cumulative_conversion_pct
 FROM user_funnels uf, top
 GROUP BY uf.stage, top.top_cnt
 ORDER BY
@@ -147,8 +147,8 @@ WITH stage_counts AS (
 SELECT
     stage,
     cnt                                                              AS users,
-    ROUND(cnt * 100.0 / FIRST_VALUE(cnt) OVER (ORDER BY ord), 2)   AS pct_of_top,
-    ROUND(cnt * 100.0 / NULLIF(LAG(cnt) OVER (ORDER BY ord), 0), 1) AS step_conv_pct,
+    ROUND(cnt * 100.0 / FIRST_VALUE(cnt) OVER (ORDER BY ord), 2)     AS pct_of_top,
+    ROUND(cnt * 100.0 / NULLIF(LAG(cnt) OVER (ORDER BY ord), 0), 1)  AS step_conv_pct,
     cnt - COALESCE(LEAD(cnt) OVER (ORDER BY ord), cnt)               AS users_lost,
     ROUND(
         (cnt - COALESCE(LEAD(cnt) OVER (ORDER BY ord), cnt)) * 100.0 / cnt, 1
