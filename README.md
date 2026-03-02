@@ -1,7 +1,7 @@
 ![Project-logo](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/Project-logo.png)
 <div align="center">  
     
-## User Funnels<br>(Sales funnel analysis)   
+## Full-Sales-Funnel-Analysis<br>(User Funnel)   
   
 </div>
 
