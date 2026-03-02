@@ -1,4 +1,4 @@
-![Project-logo](https://github.com/isachenko-andrii/User-Funnels/blob/main/Project-logo.png)
+![Project-logo](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/Project-logo.png)
 <div align="center">  
     
 ## User Funnels<br>(Sales funnel analysis)   
@@ -89,15 +89,15 @@ According to the analysis:
   
  *  **Visual funnel with drop-off**
    
-  ![Funnel chart](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/funnel_chart.png)  
+  ![Funnel chart](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/images/funnel_chart.png)  
     
  * **Step conversion & drop-off pie**
    
-  ![Conversion charts](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/conversion_charts.png)  
+  ![Conversion charts](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/images/conversion_charts.png)  
   
  * **Cumulative conversion curve**  
     
-  ![Cumulative conversion](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/cumulative_conversion.png)  
+  ![Cumulative conversion](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/images/cumulative_conversion.png)  
     
 ## Project structure  
 
