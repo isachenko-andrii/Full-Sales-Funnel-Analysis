@@ -87,11 +87,14 @@ According to the analysis:
 ## Visualization  
   Transforming dry numbers into understandable visuals for business.  
   
- *  **Visual funnel with drop-off**  
+ *  **Visual funnel with drop-off**
+   
   ![Funnel chart](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/funnel_chart.png)  
+    
  * **Step conversion & drop-off pie**
-  ![Conversion charts](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/conversion_charts.png)
-
+   
+  ![Conversion charts](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/conversion_charts.png)  
+  
  * **Cumulative conversion curve**  
     
   ![Cumulative conversion](https://github.com/isachenko-andrii/User-Funnels/blob/main/images/cumulative_conversion.png)  
