@@ -119,7 +119,7 @@ According to the analysis:
     └── notebooks/  - colab or jupyter notebook files  
     │ └── notebook.ipynb           # Сreating visualizations  
     ├── reports/ — report of project  
-    │ └── report.pdf               # project report file  
+    │ └── report.pdf               # Project report file  
     ├── Project-logo.png — project cover  
     ├── LICENSE — MIT License  
     ├── requirements.txt — list of libraries to run the project  
