@@ -72,8 +72,8 @@ Dividing the audience into groups based on their behavior (funnel depth) for tar
   
 **File:** 05_segmentation.sql  
 
-**6. Calculation of key business metrics**  
- Based on the cleaned data, a KPI system was calculated to assess the effectiveness of the product funnel.  
+**6. Calculating key business metrics**
+Based on the cleaned data, key business metrics were calculated to assess the effectiveness of the product's sales funnel.
   
  **File:** 06_advanced_metrics.sql  
   
