@@ -103,7 +103,7 @@ According to the analysis:
     │ ├──  raw/ — raw data  
     │ └──  processed/ — cleaned data  
     │  
-    ├── sql/  
+    ├── sql/  - sql queries  
     │   ├── 01_create_table.sql    # Schema + data loading  
     │   ├── 02_data_cleaning.sql   # Validation & quality checks  
     │   ├── 03_eda.sql             # Exploratory data analysis  
@@ -111,14 +111,15 @@ According to the analysis:
     │   ├── 05_segmentation.sql    # User segmentation  
     │   └── 06_advanced_metrics.sql # Window functions & advanced SQL  
     │  
-    ├── images/  
+    ├── images/  - visualization  
     │   ├── funnel_chart.png       # Visual funnel with drop-off  
     │   ├── conversion_charts.png  # Step conversion + drop-off pie  
     │   └── cumulative_conversion.png # Cumulative conversion curve  
     │  
-    └── notebooks/  
-    └── analysis_summary.md    # Written summary of all findings  
+    └── notebooks/  - colab or jupyter notebook files  
+    │ └── notebook.ipynb           # Сreating visualizations  
     ├── reports/ — report of project  
+    │ └── report.pdf               # project report file  
     ├── Project-logo.png — project cover  
     ├── LICENSE — MIT License  
     ├── requirements.txt — list of libraries to run the project  
@@ -130,7 +131,7 @@ According to the analysis:
 
  - Clone the repository.   
  - Run the SQL scripts from the /sql folder in your PostgreSQL environment.  
- - ...  
+ - To create diagrams use notebook.ipynb, run it in Colab or Jupyter Notebook.  
   
  ## Contact  
     
