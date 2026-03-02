@@ -21,14 +21,14 @@ WITH user_depth AS (
 )
 SELECT
     CASE max_depth
-        WHEN 1 THEN '🏠 Bounce        (homepage only)'
-        WHEN 2 THEN '👀 Browser       (reached product page)'
-        WHEN 3 THEN '🛒 Intent        (reached cart)'
-        WHEN 4 THEN '💳 Near-Buyer    (reached checkout)'
-        WHEN 5 THEN '✅ Buyer         (completed purchase)'
+        WHEN 1 THEN 'Bounce        (homepage only)'
+        WHEN 2 THEN 'Browser       (reached product page)'
+        WHEN 3 THEN 'Intent        (reached cart)'
+        WHEN 4 THEN 'Near-Buyer    (reached checkout)'
+        WHEN 5 THEN 'Buyer         (completed purchase)'
     END                                                      AS segment,
     COUNT(*)                                                 AS user_count,
-    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)      AS pct_of_users
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)       AS pct_of_users
 FROM user_depth
 GROUP BY max_depth
 ORDER BY max_depth;
@@ -117,7 +117,7 @@ WITH segments AS (
 SELECT
     segment,
     COUNT(*)                                                AS users,
-    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)     AS pct
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 2)      AS pct
 FROM segments
 GROUP BY segment
 ORDER BY
