@@ -1,5 +1,5 @@
 ![Project-logo](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/Project-logo.png)
-#### [EN](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/main/README.md) | [UA](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/main/README-UA.md) This material is also available in Ukrainian.   
+#### [EN](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/README.md) | [UA](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/README-UA.md) This material is also available in Ukrainian.   
 ---  
 <div align="center">  
     
