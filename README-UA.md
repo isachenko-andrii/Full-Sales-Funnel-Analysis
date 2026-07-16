@@ -3,155 +3,160 @@
 ---  
 <div align="center">  
     
-## Full Sales Funnel Analysis<br>(User Funnel)   
+## Повний аналіз воронки продажів<br>(User Funnel)   
   
 </div>
+  
+## Опис проекту  
+  
+Цей проект присвячений аналізу воронки продажів інтернет-магазину на основі набору даних User Funnels. Мета аналізу — відстежити шлях користувача від першого відвідування сайту до успішної покупки, визначити критичні точки висадки та надати обґрунтовані рекомендації щодо покращення конверсії.  
+  
+**Джерело даних:** [Kaggle: User Funnels Dataset](https://www.kaggle.com/datasets/amirmotefaker/user-funnels-dataset)  
+  
+## Технологічний стек  
+    
+**База даних:** PostgreSQL (SQL для ETL, очищення та аналізу).  
+**Мова програмування:** Python 3.x.  
+**Бібліотеки:** Pandas, Matplotlib, NumPy.  
+  
+## Процес реалізації проекту (покроково)      
+  
+**1. Збір та завантаження даних (ETL)**  
+  
+На цьому етапі було підготовлено інфраструктуру аналізу. Дані з необробленого CSV-файлу було імпортовано в реляційну базу даних для забезпечення цілісності та можливості написання складних запитів.
+  
+**Інструменти:** PostgreSQL, SQL.  
+  
+**Що було зроблено:** Було визначено схему таблиці user_funnels, налаштовано типи даних та виконано імпорт за допомогою команди COPY.  
+  
+**Файл:** 01_create_table.sql  
+  
+**2. Очищення та валідація даних**  
+  
+Перед обчисленнями дані перевірялися на стерильність. Якість результатів безпосередньо залежить від чистоти вихідних даних.  
+  
+**Перевірки:**  
+  
+- Пошук та обробка значень NULL та порожніх рядків.  
+- Перевірка на дублікати (унікальність пар user_id + етап).  
+- Валідація бізнес-логіки: етапи воронки продажів відповідають заданому списку.  
+  
+**Результат:** Набір даних вважається валідним (17 175 записів, 0 пропусків).  
+  
+**Файл:** 02_data_cleaning.sql  
+  
+**3. Дослідницький аналіз (EDA)**
+  
+Початковий огляд даних для розуміння загальних тенденцій та розподілів.  
+  
+**Метрики:**  
+- Загальна кількість унікальних користувачів на кожному етапі. 
+- Відсоток завершених та неповних конверсій.  
+- Карта шляху користувача для візуальної перевірки послідовності.  
+  
+**Файл:** 03_eda.sql  
+  
+**4. Глибокий аналіз воронки продажів (Funnel Analysis)**  
+  
+Основний аналітичний розділ, де розраховуються ключові показники ефективності (KPI) продукту.  
+  
+**Розрахунки:**  
+  
+- *Покрокова конверсія:* Відсоток користувачів, які переходять з поточного кроку на наступний.  
+- Коефіцієнт вибуття: Відсоток користувачів, які вибувають на кожному кроці.  
+- Сукупна конверсія (загальний CR): Загальний коефіцієнт конверсії від першого кроку до покупки.  
+  
+**Методи:** Використання віконних функцій (LAG, FIRST_VALUE) для порівняння даних між рядками.  
+  
+**Файл:** 04_funnel_analysis.sql  
+  
+**5. Сегментація користувачів**
+Поділ аудиторії на групи на основі їхньої поведінки (глибини воронки продажів) для цільового маркетингу.
 
-##  Project description  
-  
-This project is dedicated to analyzing the sales funnel of an online store based on the User Funnels Dataset. The goal of the analysis is to track the user's journey from the first visit to the site to a successful purchase, identify critical drop-off points, and provide sound recommendations for improving conversion.
+**Сегменти:** Відмови (лише головна сторінка), Браузер (переглядач товару), Користувач, який покинув кошик (покинутий кошик), Покупець.
 
-**Data source:** [Kaggle: User Funnels Dataset](https://www.kaggle.com/datasets/amirmotefaker/user-funnels-dataset)  
-  
-## Technology stack  
+**Результат:** Було виявлено, що 49% користувачів є тими, хто покинув товар, що вказує на проблему з трафіком або релевантністю контенту на головній сторінці.
 
-**Database:** PostgreSQL (SQL for ETL, cleansing and analysis).  
-**Programming language:** Python 3.x.  
-**Libraries:** Pandas, Matplotlib, NumPy.  
+**Файл:** 05_segmentation.sql
 
-  ## Project implementation process (Step-by-Step)  
+**6. Розрахунок ключових бізнес-показників**  
   
-**1. Data Acquisition and Loading (ETL)**  
-At this stage, the analysis infrastructure was prepared. Data from the raw CSV file was imported into a relational database to ensure integrity and the ability to write complex queries.  
+На основі очищених даних було розраховано ключові бізнес-показники для оцінки ефективності воронки продажів товару.  
   
-**Tools:** PostgreSQL, SQL.  
+ **File:** 06_advanced_metrics.sql   
+    
+## Ключові результати  
   
-**What was done:** The user_funnels table schema was defined, data types were configured, and the import was performed using the COPY command.  
+Згідно з аналізом:  
+    
+**Загальний коефіцієнт конверсії (загальний CR):** 2,25%.  
+**Найвищий відтік:** Відбувається на сторінці товару → кошик (70% втрат) та кошику → оформлення замовлення (70% втрат).  
+**Сегментація:** Майже 50% користувачів залишають сайт після перегляду лише головної сторінки (показник відмов).  
   
-**File:** 01_create_table.sql  
+## Візуалізація  
   
-**2. Data Cleaning and Validation**  
-Before calculations, the data was checked for sterility. The quality of the results directly depends on the purity of the source data.  
+Перетворення сухих цифр на зрозумілі візуальні елементи для бізнесу.  
   
-**Checks:**  
-  
- - Finding and processing NULL values ​​and empty strings.  
- - Checking for duplicates (uniqueness of user_id + stage pairs).  
- - Business logic validation: funnel stages match the specified list.  
-  
-**Result:** The dataset is considered valid (17,175 records, 0 gaps).  
-  
-**File:** 02_data_cleaning.sql  
-  
-**3. Exploratory Analysis (EDA)**  
-Initial review of the data to understand general trends and distributions.  
-  
-**Metrics:**
- - Total number of unique users at each stage.
- - Percentage of completed and incomplete conversions.
- - User Journey Mapping for visual sequence verification.  
-
-**File:** 03_eda.sql  
-  
-**4. Deep Funnel Analysis (Funnel Analysis)**
-The main analytical section, where the product's key performance indicators (KPIs) are calculated.  
-  
-**Calculations:**  
-  
- - *Step-to-Step Conversion:* The percentage of users who move from the current step to the next.  
- - Drop-off Rate: The percentage of users who drop off at each step.  
- - Cumulative Conversion (Overall CR): The total conversion rate from the first step to a purchase.  
-  
-**Methods:** Using window functions (LAG, FIRST_VALUE) to compare data between rows.  
-  
-**File:** 04_funnel_analysis.sql  
-  
-**5. User Segmentation**  
-Dividing the audience into groups based on their behavior (funnel depth) for targeted marketing.  
-  
-**Segments:** Bounce (homepage only), Browser (product viewer), Cart Abandoner (abandoned cart), Buyer.  
-**Result:** It was found that 49% of users are bouncers, indicating a traffic or content relevance issue on the homepage.  
-  
-**File:** 05_segmentation.sql  
-
-**6. Calculating key business metrics**
-Based on the cleaned data, key business metrics were calculated to assess the effectiveness of the product's sales funnel.
-  
- **File:** 06_advanced_metrics.sql  
-  
-## Key Results  
-  
-According to the analysis:  
-**Overall Conversion Rate (Overall CR):** 2.25%.  
-**Highest churn:** Occurs at Product Page → Cart (70% loss) and Cart → Checkout (70% loss).  
-**Segmentation:** Almost 50% of users leave the site after viewing only the main page (Bounce rate).  
-  
-## Visualization  
-  Transforming dry numbers into understandable visuals for business.  
-  
- *  **Visual funnel with drop-off**
-   
+* **Візуальна воронка продажів з кінцевим пунктом**  
   ![Funnel chart](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/images/funnel_chart.png)  
     
- * **Step conversion & drop-off pie**
+ * **Крокова конверсія та показник випадіння**  
    
   ![Conversion charts](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/images/conversion_charts.png)  
   
- * **Cumulative conversion curve**  
+ * **Крива сукупної конверсії**  
     
   ![Cumulative conversion](https://github.com/isachenko-andrii/Full-Sales-Funnel-Analysis/blob/main/images/cumulative_conversion.png)  
     
-## Project structure  
+## Структура проекту
 
-  **User-Funnels/** — project directory  
-    ├── data/ — project data  
-    │ ├──  raw/ — raw data  
-    │ └──  processed/ — cleaned data  
-    │  
-    ├── sql/  - sql queries  
-    │   ├── 01_create_table.sql    # Schema + data loading  
-    │   ├── 02_data_cleaning.sql   # Validation & quality checks  
-    │   ├── 03_eda.sql             # Exploratory data analysis  
-    │   ├── 04_funnel_analysis.sql # Core funnel metrics  
-    │   ├── 05_segmentation.sql    # User segmentation  
-    │   └── 06_advanced_metrics.sql # Window functions & advanced SQL  
-    │  
-    ├── images/  - visualization  
-    │   ├── funnel_chart.png       # Visual funnel with drop-off  
-    │   ├── conversion_charts.png  # Step conversion + drop-off pie  
-    │   └── cumulative_conversion.png # Cumulative conversion curve  
-    │  
-    └── notebooks/  - colab or jupyter notebook files  
-    │ └── notebook.ipynb           # Сreating visualizations  
-    ├── reports/ — report of project  
-    │ └── report.pdf               # Project report file  
-    ├── Project-logo.png — project cover  
-    ├── LICENSE — MIT License  
-    ├── requirements.txt — list of libraries to run the project  
-    └── README.md — project description.  
+**User-Funnels/** — каталог проекту  
+├── data/ — дані проекту  
+│ ├── raw/ — необроблені дані  
+│ └── processed/ — очищені дані  
+│ ├── sql/ - sql запити  
+│ ├── 01_create_table.sql # Схема + завантаження даних  
+│ ├── 02_data_cleaning.sql # Перевірка та перевірка якості  
+│ ├── 03_eda.sql # Дослідницький аналіз даних  
+│ ├── 04_funnel_analysis.sql # Основні метрики воронки  
+│ ├── 05_segmentation.sql # Сегментація користувачів  
+│ └── 06_advanced_metrics.sql # Віконні функції та розширений SQL  
+│ ├── images/ - візуалізація  
+│ ├── funnel_chart.png # Візуальна воронка з випаданням  
+│ ├── conversion_charts.png # Крок конверсії + випадання пирога  
+│ └── cumulative_conversion.png # Крива сукупної конверсії  
+│ └── notebooks/ - файли блокнотів Colab або Jupyter  
+│ └── notebook.ipynb # Створення візуалізацій   
+├── reports/ — звіт про проект  
+│ └── report.pdf # Файл звіту про проект  
+├── Project-logo.png — обкладинка проєкту  
+├── ЛІЦЕНЗІЯ — Ліцензія MIT  
+├── requirements.txt — список бібліотек для запуску проєкту   
+└── README.md — опис проєкту.  
   
----
-
-## How to start the project  
-
- - Clone the repository.   
- - Run the SQL scripts from the /sql folder in your PostgreSQL environment.  
- - To create diagrams use notebook.ipynb, run it in Colab or Jupyter Notebook.  
+---  
   
- ## Contact  
-    
-**Author:** [Andrii Isachenko](https://isachenko-andrii.github.io)    
-**LinkedIn:** [Andrii Isachenko](https://www.linkedin.com/in/isachenko-andrii/)  
-**E-mail:** andrii.isachenko@gmail.com   
+## Як використати проєкт  
   
-## Acknowledgments    
-
- - Thanks to [Amir Motefaker](https://www.kaggle.com/datasets/amirmotefaker/user-funnels-dataset) for providing this rich dataset for the data community.
- - Special thanks to the [Kaggle](https://www.kaggle.com/) platform for hosting the data.
- - Thanks to the [Data Analyst/GoIT](https://goit.global/ua/courses/data-analytics/) course, which was part of this project.
-
----
+- Клонуйте репозиторій.  
+- Запустіть SQL-скрипти з папки /sql у вашому середовищі PostgreSQL.  
+- Для створення діаграм використовуйте notebook.ipynb, запустіть його в Colab або Jupyter Notebook.  
   
-**Project Status:** Completed.
-    
-**License:** MIT License.   
+## Контакти  
+  
+**Автор:** [Андрій Ісаченко](https://isachenko-andrii.github.io)  
+**LinkedIn:** [Андрій Ісаченко](https://www.linkedin.com/in/isachenko-andrii/)  
+**Електронна пошта:** andrii.isachenko@gmail.com  
+  
+## Подяки  
+  
+- Дякуємо [Аміру Мотефакеру](https://www.kaggle.com/datasets/amirmotefaker/user-funnels-dataset) за надання цього багатого набору даних для спільноти даних.  
+- Особлива подяка платформі [Kaggle](https://www.kaggle.com/) за розміщення даних.  
+- Дякую курсу [Аналітик даних/GoIT](https://goit.global/ua/courses/data-analytics/), чачтиною якого було виконання цього проєкту.  
+  
+---  
+  
+**Статус проєкту:** Завершено.  
+  
+**Ліцензія:** Ліцензія MIT.  
+  
