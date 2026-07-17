@@ -145,6 +145,7 @@
 ## Контакти  
   
 **Автор:** [Андрій Ісаченко](https://isachenko-andrii.github.io)  
+**Посада:** Junior Data Analyst  
 **LinkedIn:** [Андрій Ісаченко](https://www.linkedin.com/in/isachenko-andrii/)  
 **Електронна пошта:** andrii.isachenko@gmail.com  
   
