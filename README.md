@@ -141,6 +141,7 @@ According to the analysis:
  ## Contact  
     
 **Author:** [Andrii Isachenko](https://isachenko-andrii.github.io)    
+**Position:** Junior Data Analyst  
 **LinkedIn:** [Andrii Isachenko](https://www.linkedin.com/in/isachenko-andrii/)  
 **E-mail:** andrii.isachenko@gmail.com   
   
